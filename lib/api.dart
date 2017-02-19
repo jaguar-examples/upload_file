@@ -1,7 +1,5 @@
 library api;
 
-import 'dart:async';
-
 import 'package:jaguar/jaguar.dart';
 import 'package:jaguar/interceptors.dart';
 
