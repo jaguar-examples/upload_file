@@ -7,3 +7,5 @@ pubspec.lock
 
 .dart_tool
 .idea
+
+bin/data/*.jpg

@@ -12,7 +12,7 @@ main() async {
   final request = new http.MultipartRequest("POST", uri);
   request.fields['as'] = 'file.txt';
   request.files.add(new http.MultipartFile(
-      'file', file.openRead(), await file.length(),
+      'pic', file.openRead(), await file.length(),
       filename: 'sample.txt'));
   await request.send();
 }
