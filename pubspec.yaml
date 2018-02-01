@@ -2,11 +2,10 @@ name: boilerplate
 version: 0.5.0
 description: Example that shows how to upload files using Jaguar server
 dependencies:
-  jaguar: ^0.6.20
+  jaguar: ^1.2.8
   http:
-  jaguar_dev_proxy: ^0.0.6
-  jaguar_static_file: ^0.5.1
-  jaguar_client:
+  jaguar_dev_proxy: ^1.2.0
+  jaguar_client: ^0.2.0
   stencil: ^0.0.2
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1

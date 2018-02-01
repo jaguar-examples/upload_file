@@ -1,5 +1,0 @@
-bin:
-  'bin/server.dart'
-
-apis:
-  - 'lib/api.dart'

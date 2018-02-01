@@ -3,7 +3,6 @@ library upload_files.server;
 import 'dart:io';
 import 'package:jaguar/jaguar.dart';
 import 'package:jaguar_dev_proxy/jaguar_dev_proxy.dart';
-import 'package:jaguar_static_file/jaguar_static_file.dart';
 
 main(List<String> args) async {
   final server = new Jaguar(port: 8005);
@@ -38,7 +37,7 @@ main(List<String> args) async {
     });
 
   // Serve the uploaded media
-  server.addApi(new StaticFileHandler('/data/img/', new Directory('bin/data')));
+  server.staticFiles('/data/img/', 'bin/data');
   // Serve HTML and related files
   server.addApi(new PrefixedProxyServer('/', 'http://localhost:8000/'));
 
