@@ -1,9 +1,9 @@
 # upload_file
 
-Example that shows how to upload files using Jaguar server
+Example that shows how to upload files using Jaguar server.
 
 Learn how to decode `multipart/form-data` using `bodyAsFormData` method
-of `Request` object to upload files.
+ to upload files.
 
 # Tutorial
 
