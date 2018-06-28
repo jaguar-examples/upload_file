@@ -39,7 +39,7 @@ class PictureListComp extends Component {
 
 Future updatePics() async {
   final JsonResponse resp = await client.get('/api/pics');
-  List<String> urls = resp.body;
+  List<String> urls = resp.decodeList<String>();
   picHolder.setInnerHtml(new PictureListComp(urls).render());
 }
 

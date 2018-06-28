@@ -11,13 +11,14 @@ main(List<String> args) async {
   server.group('/api')
     // Upload route
     ..post('/upload', (ctx) async {
-      final Map<String, FormField> formData = await ctx.req.bodyAsFormData();
+      final Map<String, FormField> formData = await ctx.bodyAsFormData();
+      print('here');
       BinaryFileFormField pic = formData['pic'];
       File file = new File('bin/data/' + pic.filename);
       IOSink sink = file.openWrite();
       await sink.addStream(pic.value);
       await sink.close();
-      return Response.redirect(Uri.parse("/"));
+      return Redirect(Uri.parse("/"));
     })
     // Get uploaded media route
     ..get('/pics', (Context ctx) async {
@@ -33,13 +34,15 @@ main(List<String> args) async {
         pics.add(entity.uri.pathSegments.last);
       }
 
-      return Response.json(pics);
+      return StrResponse.json(pics);
     });
 
   // Serve the uploaded media
-  server.staticFiles('/data/img/', 'bin/data');
+  server.staticFiles('/data/img/*', 'bin/data');
   // Serve HTML and related files
-  server.addApi(new PrefixedProxyServer('/', 'http://localhost:8000/'));
+  server.add(new PrefixedProxyServer('/', 'http://localhost:8000/'));
 
-  await server.serve();
+  server.log.onRecord.listen(print);
+
+  await server.serve(logRequests: true);
 }
