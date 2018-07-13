@@ -5,14 +5,13 @@ import 'package:jaguar/jaguar.dart';
 import 'package:jaguar_dev_proxy/jaguar_dev_proxy.dart';
 
 main(List<String> args) async {
-  final server = new Jaguar(port: 8005);
+  final server = Jaguar(port: 8005);
 
   // API
   server.group('/api')
     // Upload route
     ..post('/upload', (ctx) async {
       final Map<String, FormField> formData = await ctx.bodyAsFormData();
-      print('here');
       BinaryFileFormField pic = formData['pic'];
       File file = new File('bin/data/' + pic.filename);
       IOSink sink = file.openWrite();
@@ -34,7 +33,7 @@ main(List<String> args) async {
         pics.add(entity.uri.pathSegments.last);
       }
 
-      return StrResponse.json(pics);
+      return Response.json(pics);
     });
 
   // Serve the uploaded media
