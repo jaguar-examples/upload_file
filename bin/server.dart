@@ -3,6 +3,7 @@ library upload_files.server;
 import 'dart:io';
 import 'package:jaguar/jaguar.dart';
 import 'package:jaguar_dev_proxy/jaguar_dev_proxy.dart';
+import 'package:path/path.dart' as p;
 
 main(List<String> args) async {
   final server = Jaguar(port: 8005);
@@ -13,10 +14,7 @@ main(List<String> args) async {
     ..post('/upload', (ctx) async {
       final Map<String, FormField> formData = await ctx.bodyAsFormData();
       BinaryFileFormField pic = formData['pic'];
-      File file = new File('bin/data/' + pic.filename);
-      IOSink sink = file.openWrite();
-      await sink.addStream(pic.value);
-      await sink.close();
+      await pic.writeTo(p.join('bin', 'data', pic.filename));
       return Redirect(Uri.parse("/"));
     })
     // Get uploaded media route
