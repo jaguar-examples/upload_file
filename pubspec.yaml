@@ -1,21 +1,21 @@
 name: jaguar_example_upload_file
-version: 2.1.1
+version: 2.2.0
 description: Example that shows how to upload files using Jaguar server
 author: Ravi Teja Gudapati <tejainece@gmail.com>
 homepage: https://github.com/jaguar-examples/upload_file
 
 environment:
-  sdk: ">=2.0.0-dev.60.0 <3.0.0"
+  sdk: ">=2.0.0 <3.0.0"
 
 dependencies:
-  jaguar: ^2.1.24
-  jaguar_resty: ^2.5.9
-  jaguar_dev_proxy: ^2.1.1
-  jaguar_client: ^2.1.1
+  jaguar: ^2.2.0
+  jaguar_resty: ^2.6.2
+  jaguar_dev_proxy: ^2.2.0
+  jaguar_client: ^2.2.1
   stencil: ^2.1.1
   http: ^0.11.3
   path: ^1.6.1
 
 dev_dependencies:
-  build_runner: ^0.9.0
+  build_runner: ^0.10.0
   build_web_compilers: ^0.4.0

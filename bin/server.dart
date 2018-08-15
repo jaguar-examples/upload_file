@@ -37,7 +37,7 @@ main(List<String> args) async {
   // Serve the uploaded media
   server.staticFiles('/data/img/*', 'bin/data');
   // Serve HTML and related files
-  server.add(new PrefixedProxyServer('/', 'http://localhost:8000/'));
+  server.addRoute(getOnlyProxy('/*', 'http://localhost:8000/'));
 
   server.log.onRecord.listen(print);
 
