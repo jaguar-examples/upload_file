@@ -19,7 +19,7 @@ main(List<String> args) async {
     })
     // Get uploaded media route
     ..get('/pics', (Context ctx) async {
-      Directory dir = new Directory('bin/data');
+      Directory dir = Directory('bin/data');
 
       List<String> pics = [];
 
